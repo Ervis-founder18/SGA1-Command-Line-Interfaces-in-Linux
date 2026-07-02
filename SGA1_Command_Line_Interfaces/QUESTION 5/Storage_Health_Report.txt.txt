@@ -1,0 +1,106 @@
+------------------------------------------------------------
+              STORAGE HEALTH ASSESSMENT REPORT
+------------------------------------------------------------
+
+Student Name : Muhammad Erfan M
+Student ID   : 2025EB01237
+Course       : Command Line Interfaces in Linux
+Assignment   : SGA 1
+Question     : Question 5 – Storage Health Assessment and Documentation
+Date         : 02-07-2026
+
+------------------------------------------------------------
+Objective
+------------------------------------------------------------
+
+To assess the storage resources available in the Linux system by identifying storage devices, examining mounted file systems, analyzing disk usage statistics, evaluating inode utilization, and documenting storage health observations along with recommendations for efficient storage management.
+
+------------------------------------------------------------
+Commands Executed
+------------------------------------------------------------
+
+------------------------------------------------------------
+Command 1
+------------------------------------------------------------
+
+Command:
+lsblk
+
+Output:
+Displayed all available storage devices along with their size, type, and mount points.
+
+Observation:
+The lsblk command lists all block storage devices connected to the Linux system. It provides information about storage device names, sizes, device types, and mount points, helping identify the available storage resources.
+
+------------------------------------------------------------
+Command 2
+------------------------------------------------------------
+
+Command:
+df -h
+
+Output:
+Displayed mounted file systems along with total size, used space, available space, usage percentage, and mount points.
+
+Observation:
+The df -h command reports disk space usage in a human-readable format. It helps monitor storage utilization by displaying the capacity and available space of each mounted file system.
+
+------------------------------------------------------------
+Command 3
+------------------------------------------------------------
+
+Command:
+du -sh ~
+
+Output:
+148K    /home/erfan_m
+
+Observation:
+The du -sh command calculates the total disk space occupied by the current user's home directory. It provides a quick summary of storage usage without listing every individual file.
+
+------------------------------------------------------------
+Command 4
+------------------------------------------------------------
+
+Command:
+df -i
+
+Output:
+Displayed inode statistics including total inodes, used inodes, free inodes, inode usage percentage, and mounted file systems.
+
+Observation:
+The df -i command reports inode utilization for each mounted file system. Inodes store metadata about files and directories. Monitoring inode usage is important because a file system can run out of inodes even when disk space is still available.
+
+------------------------------------------------------------
+Storage Health Observations
+------------------------------------------------------------
+
+• The Linux system successfully detected all available storage devices.
+
+• Mounted file systems were accessible and showed sufficient available storage space.
+
+• The home directory occupied only a small amount of storage (148 KB), indicating efficient disk usage.
+
+• Inode utilization was very low across the mounted file systems, showing that plenty of file metadata entries remain available.
+
+• No storage-related warnings or capacity issues were observed during the assessment.
+
+------------------------------------------------------------
+Recommendations for Improving Storage Utilization
+------------------------------------------------------------
+
+• Regularly monitor disk usage using commands such as df and du.
+
+• Remove unnecessary temporary files and unused data to free storage space.
+
+• Monitor inode utilization periodically, especially on systems containing a large number of small files.
+
+• Archive or compress old files to reduce storage consumption.
+
+• Schedule routine storage maintenance to ensure efficient disk utilization and system performance.
+
+------------------------------------------------------------
+Conclusion
+------------------------------------------------------------
+
+The storage resources of the Linux system were successfully assessed using standard Linux command-line utilities. Available storage devices, mounted file systems, disk usage statistics, and inode utilization were examined. The system currently has sufficient storage capacity and healthy inode availability, indicating that the storage environment is operating efficiently.
