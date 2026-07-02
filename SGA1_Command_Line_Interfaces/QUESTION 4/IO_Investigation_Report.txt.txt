@@ -1,0 +1,103 @@
+------------------------------------------------------------
+                 FILE ACCESS & I/O INVESTIGATION REPORT
+------------------------------------------------------------
+
+Student Name : Muhammad Erfan M
+Student ID   : 2025EB01237
+Course       : Command Line Interfaces in Linux
+Assignment   : SGA 1
+Question     : Question 4 – File Access and I/O Investigation
+Date         : 02-07-2026
+
+------------------------------------------------------------
+Objective
+------------------------------------------------------------
+
+To investigate Linux file access and input/output (I/O) operations by identifying open files, examining file descriptors, demonstrating output and error redirection, observing system resource limits, and understanding how Linux manages file I/O.
+
+------------------------------------------------------------
+Commands Executed
+------------------------------------------------------------
+
+------------------------------------------------------------
+Command 1
+------------------------------------------------------------
+
+Command:
+less sample.txt
+(Verified using: lsof sample.txt)
+
+Output:
+The lsof command displayed the running process (less) that had the file sample.txt open.
+
+Observation:
+The lsof utility identifies files currently opened by running processes. Since sample.txt was opened using the less command, lsof displayed the process information including the process name, PID, file descriptor, and file name. This confirms that Linux keeps track of files currently in use.
+
+------------------------------------------------------------
+Command 2
+------------------------------------------------------------
+
+Command:
+ls -l /proc/$$/fd
+
+Output:
+Displayed symbolic links representing the current shell's file descriptors.
+
+Observation:
+The command displayed the file descriptors currently used by the Bash shell. File descriptor 0 represents Standard Input (stdin), descriptor 1 represents Standard Output (stdout), descriptor 2 represents Standard Error (stderr), and descriptor 255 is used internally by the Bash shell.
+
+------------------------------------------------------------
+Command 3
+------------------------------------------------------------
+
+Commands:
+echo "Hello Linux" > output.txt
+ls file_that_does_not_exist 2> error.txt
+cat output.txt
+cat error.txt
+
+Output:
+Hello Linux
+ls: cannot access 'file_that_does_not_exist': No such file or directory
+
+Observation:
+The greater-than (>) operator redirected normal command output into output.txt. The 2> operator redirected the error message into error.txt instead of displaying it on the terminal. This demonstrates how Linux separates standard output and standard error into different data streams.
+
+------------------------------------------------------------
+Command 4
+------------------------------------------------------------
+
+Command:
+ulimit -a
+
+Output:
+Displayed various resource limits including maximum open files, stack size, CPU time, virtual memory, and process limits.
+
+Observation:
+The ulimit command displays the resource limits configured for the current shell session. These limits help the operating system manage CPU usage, memory consumption, file access, and other system resources to maintain stability and security.
+
+------------------------------------------------------------
+Technical Observations
+------------------------------------------------------------
+
+• Linux maintains a table of currently opened files that can be viewed using the lsof command.
+
+• Every running process communicates with files through file descriptors.
+
+• Standard Input (0), Standard Output (1), and Standard Error (2) are the default file descriptors assigned to every process.
+
+• Output redirection (>) stores normal program output in a file, while error redirection (2>) stores error messages separately.
+
+• The ulimit command displays resource limits that help protect the operating system from excessive resource usage.
+
+------------------------------------------------------------
+Explanation of How Linux Manages File I/O
+------------------------------------------------------------
+
+Linux manages file input and output through file descriptors. Every process receives standard input, standard output, and standard error when it starts. Applications read from and write to files using these descriptors. The Linux kernel handles all file operations, maintains information about open files, controls access permissions, and manages system resources efficiently. Output redirection allows command results to be written into files, while error redirection stores error messages separately, improving command execution and troubleshooting.
+
+------------------------------------------------------------
+Conclusion
+------------------------------------------------------------
+
+The investigation successfully demonstrated Linux file access and I/O mechanisms. Open files, file descriptors, output redirection, error redirection, and system resource limits were examined using standard Linux utilities. The exercise provided a practical understanding of how Linux manages file operations and system resources.
