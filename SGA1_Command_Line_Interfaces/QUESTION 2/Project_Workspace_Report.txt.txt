@@ -1,0 +1,97 @@
+------------------------------------------------------------
+                PROJECT WORKSPACE REPORT
+------------------------------------------------------------
+
+Student Name : Muhammad Erfan M
+Student ID   : 2025EB01237
+Course       : Command Line Interfaces in Linux
+Assignment   : SGA 1
+Question     : Question 2 – Secure Project Workspace Setup
+Date         : 02-07-2026
+
+------------------------------------------------------------
+Objective
+------------------------------------------------------------
+
+To create a secure project workspace in Linux, configure directory permissions, verify ownership information, examine the default umask value, and understand how Linux file permissions help protect project data.
+
+------------------------------------------------------------
+Commands Executed
+------------------------------------------------------------
+
+------------------------------------------------------------
+Command 1
+------------------------------------------------------------
+
+Command:
+mkdir -p ProjectWorkspace/{docs,src,backup}
+
+Output:
+Created the ProjectWorkspace directory with the docs, src, and backup subdirectories.
+
+Observation:
+The mkdir command with the -p option was used to create the required project workspace structure. It automatically created the parent directory and all specified subdirectories successfully.
+
+------------------------------------------------------------
+Command 2
+------------------------------------------------------------
+
+Command:
+ls -R ProjectWorkspace
+
+Output:
+Displayed the complete directory structure containing docs, src, and backup folders.
+
+Observation:
+The ls -R command recursively listed all directories inside ProjectWorkspace. This verified that the required folder hierarchy was created successfully.
+
+------------------------------------------------------------
+Command 3
+------------------------------------------------------------
+
+Command:
+ls -ld ProjectWorkspace ProjectWorkspace/docs ProjectWorkspace/src ProjectWorkspace/backup
+
+Output:
+Displayed detailed permissions, ownership, and other attributes for each directory.
+
+Observation:
+The ls -ld command displayed the permissions of each directory before and after configuration. It also showed the owner and group information, allowing verification of access permissions.
+
+------------------------------------------------------------
+Command 4
+------------------------------------------------------------
+
+Command:
+stat ProjectWorkspace
+
+Output:
+Displayed detailed metadata including owner, group, inode number, permissions, timestamps, and directory size.
+
+Observation:
+The stat command provided complete ownership and metadata information about the ProjectWorkspace directory. It confirmed that the workspace belongs to the current user account and displayed detailed filesystem information.
+
+------------------------------------------------------------
+Command 5
+------------------------------------------------------------
+
+Command:
+umask
+
+Output:
+0022
+
+Observation:
+The umask command displayed the default file creation mask used by the Linux system. A value of 0022 means newly created files and directories receive secure default permissions by removing write permission for group members and others.
+
+------------------------------------------------------------
+Explanation of Permissions and Ownership
+------------------------------------------------------------
+
+Linux permissions determine who can read, write, or execute files and directories. Ownership specifies which user and group control a resource. Proper permissions help protect project files from unauthorized modification while allowing the owner full control over the workspace. The default umask value further ensures that newly created files receive secure permission settings automatically.
+
+------------------------------------------------------------
+Conclusion
+------------------------------------------------------------
+
+The secure project workspace was successfully created and verified. Directory permissions, ownership information, and the default umask value were examined successfully. These mechanisms help secure project data and provide controlled access to Linux resources.
