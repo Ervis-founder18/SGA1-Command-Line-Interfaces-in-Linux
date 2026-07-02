@@ -1,0 +1,137 @@
+------------------------------------------------------------
+                LINK ANALYSIS REPORT
+------------------------------------------------------------
+
+Student Name : Muhammad Erfan M
+Student ID   : 2025EB01237
+Course       : Command Line Interfaces in Linux
+Assignment   : SGA 1
+Question     : Question 3 – File System and Link Analysis
+Date         : 02-07-2026
+
+------------------------------------------------------------
+Objective
+------------------------------------------------------------
+
+To understand Linux file linking by creating a regular file, a hard link, and a symbolic link, comparing their inode numbers, observing their behavior after deleting the original file, and examining metadata using Linux utilities.
+
+------------------------------------------------------------
+Commands Executed
+------------------------------------------------------------
+
+------------------------------------------------------------
+Command 1
+------------------------------------------------------------
+
+Command:
+mkdir -p LinkAnalysis
+cd LinkAnalysis
+
+Output:
+Created the LinkAnalysis working directory and entered it.
+
+Observation:
+A separate workspace was created to perform the link analysis experiment without affecting other files.
+
+------------------------------------------------------------
+Command 2
+------------------------------------------------------------
+
+Command:
+echo "Linux Link Analysis Assignment" > original.txt
+
+Output:
+Created the file original.txt.
+
+Observation:
+A regular text file was created to serve as the original file for creating both hard and symbolic links.
+
+------------------------------------------------------------
+Command 3
+------------------------------------------------------------
+
+Command:
+ln original.txt hardlink.txt
+ln -s original.txt softlink.txt
+ls -l
+
+Output:
+Displayed the original file, hard link, and symbolic link.
+
+Observation:
+The hard link and symbolic link were successfully created. The symbolic link pointed to original.txt as shown by the arrow (->).
+
+------------------------------------------------------------
+Command 4
+------------------------------------------------------------
+
+Command:
+ls -li
+
+Output:
+Displayed inode numbers for all files.
+
+Observation:
+The original file and hard link shared the same inode number, proving they reference the same file. The symbolic link had a different inode because it stores only the pathname of the original file.
+
+------------------------------------------------------------
+Command 5
+------------------------------------------------------------
+
+Command:
+rm original.txt
+ls -li
+
+Output:
+The original file was deleted while the hard link remained. The symbolic link became broken.
+
+Observation:
+Deleting the original file did not affect the hard link because it still referenced the same inode. The symbolic link failed because its target file no longer existed.
+
+------------------------------------------------------------
+Command 6
+------------------------------------------------------------
+
+Command:
+cat hardlink.txt
+cat softlink.txt
+
+Output:
+The hard link displayed the file contents successfully, while the symbolic link produced a "No such file or directory" error.
+
+Observation:
+This experiment confirmed that hard links continue to access the file data after the original filename is removed, whereas symbolic links depend on the existence of the original target.
+
+------------------------------------------------------------
+Command 7
+------------------------------------------------------------
+
+Command:
+stat hardlink.txt
+
+Output:
+Displayed detailed metadata including inode number, permissions, ownership, timestamps, file size, and link count.
+
+Observation:
+The stat command provided detailed filesystem metadata for the hard link. It confirmed the file's ownership, permissions, inode number, timestamps, and link count, helping analyze how Linux stores file information.
+
+
+------------------------------------------------------------
+Comparison Between Hard Link and Symbolic Link
+------------------------------------------------------------
+
+Hard Link:
+• Shares the same inode as the original file.
+• Continues to work even if the original filename is deleted.
+• References the actual file data.
+
+Symbolic Link:
+• Has a different inode.
+• Stores the pathname of the original file.
+• Becomes broken if the original file is deleted.
+
+------------------------------------------------------------
+Conclusion(SUMMARY OF FINDINGS)
+------------------------------------------------------------
+
+The experiment successfully demonstrated the behavior of Linux hard links and symbolic links. Hard links share the same inode and remain functional after deleting the original filename, while symbolic links have their own inode and become invalid once the target file is removed. This experiment provided a clear understanding of Linux file linking mechanisms.
