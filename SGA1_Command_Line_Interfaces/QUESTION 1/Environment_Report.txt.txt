@@ -1,0 +1,104 @@
+------------------------------------------------------------
+                    ENVIRONMENT REPORT
+------------------------------------------------------------
+
+Student Name : Muhammad Erfan M
+Student ID   : 2025EB01237
+Course       : Command Line Interfaces in Linux
+Assignment   : SGA 1
+Question     : Question 1 – Linux Environment Verification
+Date         : 02-07-2026
+
+------------------------------------------------------------
+Objective
+------------------------------------------------------------
+
+To verify the Linux user environment by identifying the current user, associated groups, shell, working directory, available files and directories, and network connectivity using basic Linux command-line utilities.
+
+------------------------------------------------------------
+Commands Executed
+------------------------------------------------------------
+------------------------------------------------------------
+Command 1
+------------------------------------------------------------
+
+Command:
+whoami
+
+Output:
+erfan_m
+
+Observation:
+The `whoami` command displays the username of the currently logged-in user. I executed this command to verify the account under which I am working. The output confirmed that my current Linux username is erfan_m.
+
+------------------------------------------------------------
+Command 2
+------------------------------------------------------------
+
+Command:
+groups
+
+Output:
+erfan_m adm cdrom sudo dip plugdev users
+
+Observation:
+The `groups` command displays all groups associated with the current user account. These groups determine the permissions and access rights available to the user. The output shows that my account belongs to multiple administrative and system groups.
+
+------------------------------------------------------------
+Command 3
+------------------------------------------------------------
+
+Command:
+echo $SHELL
+
+Output:
+/bin/bash
+
+Observation:
+The `echo $SHELL` command displays the default shell currently being used by my Linux session. I used this command to verify the shell environment before performing command-line operations. The output confirmed that the active shell is /bin/bash.
+
+------------------------------------------------------------
+Command 4
+------------------------------------------------------------
+
+Command:
+pwd
+
+Output:
+/home/erfan_m
+
+Observation:
+The `pwd` command prints the present working directory. It helps identify the exact location in the Linux file system where commands are currently being executed. The output confirmed that my current working directory is /home/erfan_m.
+
+------------------------------------------------------------
+Command 5
+------------------------------------------------------------
+
+Command:
+ls -la
+
+
+Output:
+The command displayed all files and directories in the current working directory, including hidden files (.bashrc, .profile, .cache, .config, etc.), along with permissions, ownership, file size, and modification date.
+
+Observation:
+The `ls -la` command lists all files and directories in the current location, including hidden files. It also displays detailed file information such as permissions, owner, group, size, and modification time, helping verify the contents of the working directory.
+
+------------------------------------------------------------
+Command 6
+------------------------------------------------------------
+
+Command:
+ping -c 4 google.com
+
+Output:
+4 packets transmitted, 4 received, 0% packet loss.
+
+Observation:
+The `ping` command checks network connectivity by sending ICMP echo requests to a remote server. The successful replies and 0% packet loss confirmed that the Linux system has a working internet connection.
+
+------------------------------------------------------------
+Conclusion
+------------------------------------------------------------
+
+The Linux environment was successfully verified using basic command-line utilities. All required information, including user identity, groups, shell, working directory, file listing, and network connectivity, was obtained successfully.
